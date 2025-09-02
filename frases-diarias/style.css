@@ -1,0 +1,19 @@
+  body {
+            font-family: 'Inter', sans-serif;
+            transition: background-color 0.5s ease-in-out; 
+        }
+        .quote-card {
+            background-color: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease-in-out;
+        }
+        .quote-card:hover {
+            transform: scale(1.02); 
+        }
+        #generate-btn {
+            transition: transform 0.2s, background-color 0.2s;
+        }
+        #generate-btn:hover {
+            transform: translateY(-2px); 
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }

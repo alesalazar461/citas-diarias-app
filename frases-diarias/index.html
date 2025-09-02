@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Citas Diarias</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-100 flex items-center justify-center min-h-screen p-4">
+    <div
+        class="quote-card max-w-lg w-full p-8 rounded-xl shadow-lg text-center flex flex-col justify-between items-center space-y-6 md:space-y-8">
+        <h1 class="text-4xl md:text-5xl font-bold text-gray-800 tracking-tight">Cita del Día</h1>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+            class="w-12 h-12 text-gray-400">
+            <path stroke-linecap="round" stroke-linejoin="round"
+                d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" />
+        </svg>
+        <div>
+            <p id="quote-text" class="text-xl md:text-2xl font-light text-gray-600 italic leading-relaxed mb-4">
+                "La vida es aquello que te va sucediendo mientras te empeñas en hacer otros planes."
+            </p>
+            <p id="quote-author" class="text-lg md:text-xl font-medium text-gray-700">- John Lennon</p>
+        </div>
+
+
+        <button id="generate-btn"
+            class="bg-indigo-600 text-white font-bold py-3 px-8 rounded-full shadow-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 uppercase tracking-wide">
+            Nueva Cita
+        </button>
+    </div>
+
+    <script>
+
+        const quotes = [
+            { quote: "El éxito es la suma de pequeños esfuerzos repetidos día tras día.", author: "Robert Collier" },
+            { quote: "La única forma de hacer un gran trabajo es amar lo que haces.", author: "Steve Jobs" },
+            { quote: "Si puedes soñarlo, puedes hacerlo.", author: "Walt Disney" },
+            { quote: "No te rindas, el principio es siempre lo más difícil.", author: "Proverbio Japonés" },
+            { quote: "La felicidad no es algo hecho. Viene de tus propias acciones.", author: "Dalai Lama" },
+            { quote: "Cree que puedes y ya estás a medio camino.", author: "Theodore Roosevelt" },
+            { quote: "El optimismo es la fe que conduce al logro. Nada puede hacerse sin esperanza y confianza.", author: "Helen Keller" },
+            { quote: "El futuro pertenece a quienes creen en la belleza de sus sueños.", author: "Eleanor Roosevelt" },
+            { quote: "Lo que la mente del hombre puede concebir y creer, la mente del hombre puede lograr.", author: "Napoleon Hill" }
+        ];
+
+
+        const colors = [
+            "#fecaca", "#fde68a", "#a7f3d0", "#bae6fd", "#d1e9ff", "#e9d5ff", "#fbcfe8", "#c7d2fe", "#a5f3fc"
+        ];
+
+
+        const quoteText = document.getElementById('quote-text');
+        const quoteAuthor = document.getElementById('quote-author');
+        const body = document.body;
+        const generateBtn = document.getElementById('generate-btn');
+
+
+        function generateQuote() {
+
+            const randomIndex = Math.floor(Math.random() * quotes.length);
+            const randomQuote = quotes[randomIndex];
+
+
+            quoteText.textContent = `"${randomQuote.quote}"`;
+            quoteAuthor.textContent = `- ${randomQuote.author}`;
+
+
+            const randomColorIndex = Math.floor(Math.random() * colors.length);
+            body.style.backgroundColor = colors[randomColorIndex];
+        }
+        generateBtn.addEventListener('click', generateQuote);
+        window.onload = generateQuote;
+    </script>
+
+</body>
+
+</html>
